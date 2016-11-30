@@ -29,11 +29,26 @@ body.contact-us {
         padding: 0.3em 2em 0.3em 1em;
       }
     }
+    
+    .et_pb_contact_captcha {
+      width: 100px;
+      max-width: none;
+    }
   }
 
   h2 {
     &:after {
       display: none;
+    }
+  }
+  
+  .main-row {
+    @media (max-width: 980px) {
+      .et_pb_column {
+        &:first-child {
+          margin-bottom: 50px;
+        }
+      }
     }
   }
 
@@ -63,7 +78,7 @@ body.contact-us {
           left: -30px;
           top: 3px;
           color: $color-primary;
-          font-size: 18px;
+          font-size: 16px;
 
           &.fa-map-marker {
             font-size: 24px;

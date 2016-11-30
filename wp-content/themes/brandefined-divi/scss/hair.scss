@@ -1,4 +1,12 @@
 body.hair {
+  .et_pb_section {
+    @media (max-width: 980px) {
+      &:nth-child(n + 3) {
+        padding-top: 0;
+      }
+    }
+  }
+  
   h2 {
     &:after {
       display: none;
@@ -11,15 +19,6 @@ body.hair {
 
   .pricing-columns {
     margin-top: -30px;
-
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        padding-top: 10px;
-      }
-    }
 
     @media (min-width: 1101px) {
       columns: 30px 3;

@@ -3040,6 +3040,46 @@
   clip: auto;
 }
 
+/* for columns that show some pricing */
+.pricing-columns.single {
+  -moz-columns: 0 1;
+       columns: 0 1;
+}
+
+.pricing-columns.single ul li:first-child {
+  padding-top: 0;
+}
+
+.pricing-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-columns ul li {
+  padding-top: 8px;
+}
+
+@media (min-width: 1101px) {
+  .pricing-columns {
+    -moz-columns: 30px 3;
+         columns: 30px 3;
+  }
+}
+
+@media (max-width: 1100px) {
+  .pricing-columns {
+    -moz-columns: 30px 2;
+         columns: 30px 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-columns {
+    -moz-columns: 0 1;
+         columns: 0 1;
+  }
+}
+
 /* for rows that need a divider line */
 @media (min-width: 981px) {
   .vertically-divided > div:nth-last-child(n + 2) {
@@ -3145,7 +3185,7 @@
   padding: 60px 0;
 }
 
-.page-banner .et_pb_fullwidth_header_container .et_pb_fullwidth_header_subhead {
+.page-banner .et_pb_fullwidth_header_container .et_pb_fullwidth_header_subhead, .page-banner .et_pb_fullwidth_header_container p {
   color: white;
   font-size: 24px;
   font-family: 'Montserrat Light';
@@ -3160,6 +3200,7 @@
   z-index: -1;
   overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 
 .page-banner .background-image img {
@@ -3171,7 +3212,7 @@
   .page-banner .et_pb_fullwidth_header_container {
     padding: 0;
   }
-  .page-banner .et_pb_fullwidth_header_container .et_pb_fullwidth_header_subhead {
+  .page-banner .et_pb_fullwidth_header_container .et_pb_fullwidth_header_subhead, .page-banner .et_pb_fullwidth_header_container p {
     font-size: 18px;
     padding-top: 5px;
   }
@@ -3244,6 +3285,20 @@ body.admin-bar.et_fixed_nav #top-header {
   .et_header_style_split #et-top-navigation nav > ul > li > a {
     padding-bottom: 0px !important;
     margin-bottom: 88px;
+  }
+}
+
+/* fix for menu on 2 lines */
+@media only screen and (min-width: 981px) and (max-width: 1200px) {
+  .et_header_style_left #et-top-navigation nav > ul > li > a,
+  .et_header_style_split #et-top-navigation nav > ul > li > a {
+    font-size: 14px;
+  }
+  #et-top-navigation {
+    padding-left: 0 !important;
+  }
+  .et_pb_svg_logo #logo {
+    max-height: 100px;
   }
 }
 
@@ -3582,7 +3637,7 @@ body, input, textarea, select {
 
 .h3, h3 {
   color: #56c3be !important;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'Montserrat';
 }
@@ -3725,6 +3780,12 @@ body.home.et_non_fixed_nav.et_transparent_nav #top-header {
   }
 }
 
+@media (max-width: 980px) {
+  body.hair .et_pb_section:nth-child(n + 3) {
+    padding-top: 0;
+  }
+}
+
 body.hair h2:after {
   display: none;
 }
@@ -3737,15 +3798,6 @@ body.hair h2:after {
 
 body.hair .pricing-columns {
   margin-top: -30px;
-}
-
-body.hair .pricing-columns ul {
-  list-style: none;
-  padding: 0;
-}
-
-body.hair .pricing-columns ul li {
-  padding-top: 10px;
 }
 
 @media (min-width: 1101px) {
@@ -3804,25 +3856,18 @@ body.massage .surrounding-line h2 {
 }
 
 body.massage .pricing-panels {
-  overflow: hidden;
+  font-size: 14px;
 }
 
 body.massage .pricing-panels .et_pb_column {
-  background: rgba(51, 51, 51, 0.1);
-  padding: 10px 20px 15px 20px;
-}
-
-@media (min-width: 981px) {
-  body.massage .pricing-panels .et_pb_column {
-    padding-bottom: 500em;
-    margin-bottom: -500em;
-  }
+  padding: 20px 25px 25px 25px;
+  border: 2px solid #333;
 }
 
 @media (max-width: 980px) {
   body.massage .pricing-panels {
     margin-top: -110px;
-    margin-bottom: -90px;
+    margin-bottom: -60px;
   }
 }
 
@@ -3841,13 +3886,8 @@ body.massage .pricing-columns.single {
        columns: 0 1;
 }
 
-body.massage .pricing-columns ul {
-  list-style: none;
-  padding: 0;
-}
-
-body.massage .pricing-columns ul li {
-  padding-top: 10px;
+body.massage .pricing-columns.single ul li:first-child {
+  padding-top: 8px;
 }
 
 @media (min-width: 601px) {
@@ -3936,8 +3976,19 @@ body.contact-us form button:hover {
   padding: 0.3em 2em 0.3em 1em;
 }
 
+body.contact-us form .et_pb_contact_captcha {
+  width: 100px;
+  max-width: none;
+}
+
 body.contact-us h2:after {
   display: none;
+}
+
+@media (max-width: 980px) {
+  body.contact-us .main-row .et_pb_column:first-child {
+    margin-bottom: 50px;
+  }
 }
 
 body.contact-us .contact-methods ul {
@@ -3967,7 +4018,7 @@ body.contact-us .contact-methods ul li .fa {
   left: -30px;
   top: 3px;
   color: #52338f;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 body.contact-us .contact-methods ul li .fa.fa-map-marker {
