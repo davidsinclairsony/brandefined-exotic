@@ -1,3 +1,68 @@
+/* for rows that need a divider line */
+.vertically-divided {
+  @media (min-width: 981px) {
+    > div:nth-last-child(n + 2) {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin-left: 5.4%;
+        width: 2px;
+        height: 100%;
+        content: "";
+        background: $color-semi-black;
+      }
+    }
+  }
+}
+
+/* icon first row (for hair and more) */
+.row-with-icon-first {
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  @media (min-width: 981px) {
+    .et_pb_column {
+      &:first-child {
+        width: 10.875%;
+      }
+
+      &:not(:first-child) {
+        &.et_pb_column_3_4 {
+          width: 83.625%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 980px) {
+    .et_pb_column {
+      &:first-child {
+        width: 10.875% !important;
+        margin-right: 5.5%;
+      }
+
+      &:not(:first-child) {
+        &.et_pb_column_3_4 {
+          width: 83.625% !important;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 479px) {
+    .et_pb_column {
+      &:first-child {
+        max-width: 30px;
+        margin-right: 10px !important;
+      }
+    }
+  }
+}
+
 /* hamburger icon */
 .mobile_menu_bar:before {
   color: $color-primary !important;
